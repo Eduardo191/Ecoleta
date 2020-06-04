@@ -1,65 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecoleta</title>
+{% extends "layout.html" %}
 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles/main.css">
-    <link rel="stylesheet" href="/styles/home.css">
-    <link rel="stylesheet" href="/styles/modal.css">
-    <link rel="stylesheet" href="/styles/responsive.css">
+{% set pageId = "page-home" %}
 
-  </head>
-  <body>
+{% block styles %}
+  <link rel="stylesheet" href="/styles/home.css">
+  <link rel="stylesheet" href="/styles/modal.css">
+{% endblock styles %}
 
-    <div id="page-home">
+{% block content %}
+  <div class="content">
+    <header>
+      <img src="/assets/logo.svg" alt="Logomarca">
+      <a href="/create-point">
+        Cadastre um ponto de coleta
+        <span></span>
+      </a>
+    </header>
 
-      <div class="content">
-        <header>
-          <img src="/assets/logo.svg" alt="Logomarca">
-          <a href="/create-point.html">
-            Cadastre um ponto de coleta
-            <span></span>
-          </a>
-        </header>
+    <main>
+      <h1>{{ title }}</h1>
 
-        <main>
-          <h1>Seu marketplace de coleta de resíduos</h1>
-  
-          <p>Ajudamos pessoas a encontrarem pontos de coleta de forma eficiente.</p>
-          <a href="#"><span></span><strong>Pesquisar pontos de coleta</strong></a>
-        </main>
-  
-      </div>
-    </div>
+      <p>Ajudamos pessoas a encontrarem pontos de coleta de forma eficiente.</p>
+      <a href="#">
+        <span></span>
+        <strong>Pesquisar pontos de coleta</strong>
+      </a>
+    </main>
 
-    <div id="modal" class="hide">
+  </div>
+{% endblock content %}
 
-      <div class="content">
+{% block modal %}
+  {% include "partials/modal.html" %}
+{% endblock modal %}
 
-        <div class="header">
-          <h1>Pontos de coleta</h1>
-          <a href="#">Fechar</a>
-        </div>
+{% block scripts %}
+  <script src="/scripts/index.js"></script>
+{% endblock scripts %}
 
-        <form action="/search-results.html">
-          <label for="search">Cidade</label>
-
-          <div class="search field">
-            <input placeholder="Pesquise por cidade" type="text" name="search">
-            <button>
-              <img src="/assets/search.svg" alt="Buscar">
-            </button>
-          </div>
-
-        </form>
-
-      </div>
-    </div>
-
-    <script src="/scripts/index.js"></script>
-  </body>
-</html>
